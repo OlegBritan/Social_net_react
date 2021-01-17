@@ -1,0 +1,5 @@
+.mainContent{
+	grid-area: section;
+	background: orange;
+	display: block;
+  }
