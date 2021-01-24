@@ -2,3 +2,8 @@
 	grid-area: nav;
 	background: bisque;
   }
+
+.navItems a.activeLink{
+	color: springgreen;
+}
+ 
