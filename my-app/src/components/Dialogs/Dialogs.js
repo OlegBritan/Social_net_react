@@ -1,12 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './Dialogs.module.css';
-const Dialog = (props) => {
+
+const DialogItems = (props) => {
   let path = '/dialogs/' + props.id;
 
   return (
     <div className={classes.dialog + ' ' + classes.active}>
-      <NavLink to={path}>{props.name}</NavLink>
+      <NavLink to={path} activeClassName={classes.activeLink}>
+        {props.name}
+      </NavLink>
     </div>
   );
 };
@@ -15,31 +18,38 @@ const Message = (props) => {
 };
 
 const Dialogs = (props) => {
+  let dialogsData = [
+    { id: 1, name: 'Sash' },
+    { id: 2, name: 'Sveta' },
+    { id: 3, name: 'Sergey' },
+    { id: 4, name: 'Dan' },
+    { id: 5, name: 'Anton' },
+    { id: 6, name: 'Andrew' },
+  ];
+
+  let DialogsElements = dialogsData.map((el) => {
+    return <DialogItems name={el.name} id={el.id} />;
+  });
+
+  let messagesData = [
+    { id: 1, message: 'Hi' },
+    { id: 2, message: 'Ok' },
+    { id: 3, message: 'Yes' },
+    { id: 4, message: 'No' },
+    { id: 5, message: 'How are you' },
+    { id: 6, message: 'Hello' },
+  ];
+  let messagesElements = messagesData.map((el) => {
+    return <Message massage={el.message} />;
+  });
+
   return (
     <div className={classes.dialogs}>
-      <div className={classes.dialogPersons}>
-        <Dialog name="Sash" id="1" />
-        <Dialog name="Sveta" id="2" />
-        <Dialog name="Sergey" id="3" />
-        <Dialog name="Dan" id="4" />
-        <Dialog name="Anton" id="5" />
-        <Dialog name="Andrey" id="6" />
-      </div>
+      <div className={classes.dialogItems}>{DialogsElements}</div>
 
-      <div className={classes.messages}>
-        <Message massage="Hi" />
-        <Message massage="Ok" />
-        <Message massage="Yes" />
-        <Message massage="No" />
-        <Message massage="How are you ?" />
-        <Message massage="Hello" />
-      </div>
+      <div className={classes.messages}>{messagesElements}</div>
     </div>
   );
 };
 
 export default Dialogs;
-
-
-
-

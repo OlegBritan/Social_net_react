@@ -6,6 +6,7 @@ import classes from './MyPosts.module.css';
 function MyPosts() {
   return (
     <div>
+    <h3>My Posts</h3>
       <AddNewPost />
       <MyPost />
     </div>

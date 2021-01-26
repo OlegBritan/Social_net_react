@@ -18,12 +18,11 @@ const App = () => {
 
         <Navbar />
         <section className="app-wrapper-mainContent">
-          <Route path="/profile" component={MainContent} />
-          <Route path="/dialogs" component={Dialogs} />
-          <Route path="/news" component={News} />
-          <Route path="/music" component={Music} />
-          <Route path="/setting" component={Setting} />
-          {/* <MainContent /> */}
+          <Route path="/profile" render={ () => <MainContent/>} />
+          <Route path="/dialogs" render= { () => <Dialogs/>} />
+          <Route path="/news" render= { () => <News/>} />
+          <Route path="/music" render= { () => <Music />} />
+          <Route path="/setting" render= { () => <News />} />
         </section>
 
         <Footer />

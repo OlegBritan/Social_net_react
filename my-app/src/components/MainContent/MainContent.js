@@ -7,13 +7,10 @@ import ProfileDescription from './ProfileDescription/ProfileDescription';
 const MainContent = () => {
   return (
     <section className={classes.mainContent}>
-     
-      
-        <ProfileDescription />
-    <MyPosts />
-      
+      <ProfileDescription />
+      <MyPosts />
     </section>
-    );
+  );
 };
 
 export default MainContent;

@@ -2,12 +2,13 @@
 display: grid;
 grid-template-columns: 2fr 10fr;
 }
-.dialogPersons {
+.dialogItems {
 	padding: 10px;
 }
 
-.dialogPersons .active {
-color: gold;
+
+.activeLink {
+color: rgb(0, 255, 76);
 
 }
 .messages {

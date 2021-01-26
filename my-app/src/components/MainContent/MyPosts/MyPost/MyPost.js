@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import classes from './MyPost.module.css';
 
 const MyPost = () => {
@@ -10,7 +11,8 @@ const MyPost = () => {
         width="50px"
         height="50px"
       />
-      <div>Text Post</div>
+      {/* <Post massages='Hi ,how are you?' likesCount='0' dislikeCount='0' /> */}
+      <>Text Post</>
       <div>Like</div>
       <div>Dislike</div>
     </article>
