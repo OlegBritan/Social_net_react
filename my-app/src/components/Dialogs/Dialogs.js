@@ -18,28 +18,14 @@ const Message = (props) => {
 };
 
 const Dialogs = (props) => {
-  let dialogsData = [
-    { id: 1, name: 'Sash' },
-    { id: 2, name: 'Sveta' },
-    { id: 3, name: 'Sergey' },
-    { id: 4, name: 'Dan' },
-    { id: 5, name: 'Anton' },
-    { id: 6, name: 'Andrew' },
-  ];
+  
 
-  let DialogsElements = dialogsData.map((el) => {
+  let DialogsElements = props.state.dialogsData.map((el) => {
     return <DialogItems name={el.name} id={el.id} />;
   });
 
-  let messagesData = [
-    { id: 1, message: 'Hi' },
-    { id: 2, message: 'Ok' },
-    { id: 3, message: 'Yes' },
-    { id: 4, message: 'No' },
-    { id: 5, message: 'How are you' },
-    { id: 6, message: 'Hello' },
-  ];
-  let messagesElements = messagesData.map((el) => {
+  
+  let messagesElements = props.state.messagesData.map((el) => {
     return <Message massage={el.message} />;
   });
 

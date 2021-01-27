@@ -8,26 +8,36 @@ import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Setting from './components/Setting/Setting';
-import {BrowserRouter, Route} from 'react-router-dom'
+import { Route } from 'react-router-dom';
 
-const App = () => {
+const App = (props) => {
   return (
-    <BrowserRouter>
+    
       <div className="app-wrapper">
         <Header />
 
         <Navbar />
         <section className="app-wrapper-mainContent">
-          <Route path="/profile" render={ () => <MainContent/>} />
-          <Route path="/dialogs" render= { () => <Dialogs/>} />
-          <Route path="/news" render= { () => <News/>} />
-          <Route path="/music" render= { () => <Music />} />
-          <Route path="/setting" render= { () => <News />} />
+          <Route
+            path="/profile"
+            render={() => <MainContent state={props.state.mainContentPage} addPost={props.addPost}/>}
+          />
+          <Route
+            path="/dialogs"
+            render={() => (
+              <Dialogs
+                state={props.state.dialogsPage}
+                // messagesData={props.state.dialogsPage.messagesData}
+              />
+            )}
+          />
+          <Route path="/news" render={() => <News />} />
+          <Route path="/music" render={() => <Music />} />
+          <Route path="/setting" render={() => <News />} />
         </section>
 
         <Footer />
-      </div>
-    </BrowserRouter>
+      </div>   
   );
 };
 

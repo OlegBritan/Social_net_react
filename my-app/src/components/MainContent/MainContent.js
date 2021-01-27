@@ -4,11 +4,13 @@ import MyPosts from './MyPosts/MyPosts';
 
 import ProfileDescription from './ProfileDescription/ProfileDescription';
 
-const MainContent = () => {
+
+const MainContent = (props) => {
+  
   return (
     <section className={classes.mainContent}>
       <ProfileDescription />
-      <MyPosts />
+      <MyPosts state= {props.state} addPost={props.addPost}/>
     </section>
   );
 };
