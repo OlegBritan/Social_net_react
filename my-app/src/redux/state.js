@@ -1,4 +1,4 @@
-import {reRenderEntireTree} from '../render'
+import { reRenderEntireTree } from '../render';
 
 let state = {
   dialogsPage: {
@@ -21,13 +21,27 @@ let state = {
   },
   mainContentPage: {
     postData: [
-      {id: 1, messages: 'Hi ,how are you?', likesCount: '3', dislikesCount: '1'},
+      {
+        id: 1,
+        messages: 'Hi ,how are you?',
+        likesCount: '3',
+        dislikesCount: '1',
+      },
       { id: 2, messages: 'My first post', likesCount: '2', dislikesCount: '4' },
-      { id: 3, messages: 'My second post', likesCount: '4', dislikesCount: '4' },
+      {
+        id: 3,
+        messages: 'My second post',
+        likesCount: '4',
+        dislikesCount: '4',
+      },
       { id: 4, messages: 'My post', likesCount: '8', dislikesCount: '9' },
     ],
+    newPostText: 'Input text',
   },
 };
+
+
+
 export let addPost = (postMessage) => {
   let newPost = {
     id: 5,
@@ -36,7 +50,14 @@ export let addPost = (postMessage) => {
     dislikesCount: '9',
   };
   state.mainContentPage.postData.push(newPost);
-  reRenderEntireTree(state)
+  reRenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+  console.log(newText)
+  state.mainContentPage.newPostText = newText;
+  reRenderEntireTree(state);
+  
 };
 
 export default state;

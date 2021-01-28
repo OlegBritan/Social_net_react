@@ -3,6 +3,7 @@ import Post from './Post/Post';
 import classes from './MyPosts.module.css';
 
 function MyPosts(props) {
+  console.log(props)
   let postElement = props.state.postData.map((el) => {
     return (
       <Post
@@ -15,16 +16,25 @@ function MyPosts(props) {
   });
 
   let newPostElement = React.createRef();
+
   let addPost = () => {
     let text = newPostElement.current.value;
     props.addPost(text);
+    props.updateNewPostText('')
   };
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+   
+    props.updateNewPostText(text)
+  }
 
   return (
     <div>
       <h3>My Posts</h3>
       <article>
-        <textarea ref={newPostElement}></textarea>
+        <textarea onChange={onPostChange} 
+                  ref={newPostElement} 
+                  value={props.state.newPostText} />
         <div>
           <button onClick={addPost}>Add Post</button>
           <button>Clear</button>
