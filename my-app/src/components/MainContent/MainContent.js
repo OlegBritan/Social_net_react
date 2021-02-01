@@ -10,7 +10,7 @@ const MainContent = (props) => {
   return (
     <section className={classes.mainContent}>
       <ProfileDescription />
-      <MyPosts state= {props.state} addPost={props.addPost} newPostText={props.newPostText} updateNewPostText={props.updateNewPostText}/>
+      <MyPosts state= {props.state} dispatch={props.dispatch} newPostText={props.newPostText} />
     </section>
   );
 };

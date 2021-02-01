@@ -1,3 +1,6 @@
+import dialogsReducer from "./dialogs-reducer";
+import mainContentReducer from "./mainContent-reducer";
+
 let store = {
   _callSubscriber() {
     console.log('State Changed');
@@ -20,6 +23,7 @@ let store = {
         { id: 5, message: 'How are you' },
         { id: 6, message: 'Hello' },
       ],
+      newMessageBody: ''
     },
     mainContentPage: {
       postData: [
@@ -49,27 +53,17 @@ let store = {
   getState() {
     return this._state;
   },
-  addPost() {
-    let newPost = {
-      id: 5,
-      messages: this._state.mainContentPage.newPostText,
-      likesCount: '8',
-      dislikesCount: '9',
-    };
-    this._state.mainContentPage.postData.push(newPost);
-    this._state.mainContentPage.newPostText = '';
-    this._callSubscriber(this._state);
-  },
-  updateNewPostText(newText) {
-    console.log(newText);
-    this._state.mainContentPage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
-  subscribe(observer)  {
+  subscribe(observer) {
     this._callSubscriber = observer;
-  }
-};
+  },
 
+  dispatch(action) {
+    this._state.mainContentPage = mainContentReducer(this._state.mainContentPage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._callSubscriber(this._state);
+
+  },
+};
 
 
 

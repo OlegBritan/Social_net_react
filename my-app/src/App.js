@@ -23,15 +23,15 @@ const App = (props) => {
           render={() => (
             <MainContent
               state={props.state.mainContentPage}
-              addPost={props.addPost}
-              updateNewPostText={props.updateNewPostText}
+              dispatch={props.dispatch} 
+              
             />
           )}
         />
         <Route
           path="/dialogs"
           render={() => (
-            <Dialogs
+            <Dialogs store={props.store}
               state={props.state.dialogsPage}
               // messagesData={props.state.dialogsPage.messagesData}
             />
